@@ -44,9 +44,8 @@
             <a class="nav-link js-scroll-trigger" href="#education">Education</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#research">Research</a>
+            <a class="nav-link js-scroll-trigger" href="#research">Research&Projects</a>
           </li>
-
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
           </li>
@@ -92,7 +91,7 @@
       <hr class="m-0">
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="education">
         <div class="my-auto">
-          <h2 class="mb-5">Education</h2>
+          <h2 class="mb-5 text-primary">Education</h2>
 
           <div class="resume-item d-flex flex-column flex-md-row mb-5">
             <div class="resume-content mr-auto">
@@ -110,7 +109,7 @@
           <div class="resume-item d-flex flex-column flex-md-row mb-5">
             <div class="resume-content mr-auto">
               <h3 class="mb-0">University of Texas at Austin</h3>
-              <div class="subheading mb-3">Exchange Student</div>
+              <div class="subheading mb-3">Exchange Student, Fall Semester</div>
               <div>Computer Science, College of Natural Science</div>
               <div>Passed upper-level courses: Principles of Computer Systems, Algorithms and Complexity, Artificial Intelligence.</div>
               <p>GPA: 3.92</p>
@@ -134,13 +133,35 @@
       </section>
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="research">
         <div class="my-auto">
-          <h2 class="mb-5">Research</h2>
+          <h2 class="mb-5 text-primary">Research</h2>
 
           <div class="resume-item d-flex flex-column flex-md-row mb-5">
             <div class="resume-content mr-auto">
               <h3 class="mb-0">ADAPT(Advanced Data and Programming Technology) Lab, SJTU</h3>
               <br>
-              <p>Human Relationship Understanding through Conversation Analysis</p>
+              <p>I started a project on recognizing speakers' relatinoship from conversations independently earlier this semester but encountered difficulties of finding a dataset. Then I found and joined ADAPT for guidance.</p>
+              <p>A few progress has been made since then.</p>
+              <ul>
+                <li>
+                  <b>Dialogue source</b><br>
+                  Since large-scale transcripts of human converstions are very hard to obtain, we decided to use dialogues from movies. We crawlled 1000+ movie scripts from various websites, and left those in relatively normative format. For each script, we looked for corresponding IMDB page to merge different versions oa one movie, and also to discard unfamiliar ones.
+                </li>
+                <li>
+                  <b>Pre-processing</b><br>
+                  We extracted one-to-one conversations from the scripts after scene splitting based on rules, and listed name pairs that has at least 4 conversation session and 20 lines. We asked human volunteers to label the relationship of those pairs after they watch the movie or read the synopsis.
+                </li>
+                <li>
+                  <b>Feature engineering</b><br>
+                  Since conversation lines are casual and always involves much redundant information(Sometimes nothing can indicate the speakers' relationship in tens of turns), traditional approach like document embedding or LSTM doesn't work. I believe some features need to be extracted, and am referring to publications in Conversation Analysis to determine such features. Currently I think there should at least be
+                  <ul>
+                    <li>Address</li>
+                    <li>Wording</li>
+                    <li>Co-executor of an action(For example, 'I' and 'You' are both subjects to a verb in one sentence)</li>
+                    <li>Emotional tendency</li>
+                    <li>Time occupation</li>
+                  </ul>
+                </li>
+              </ul>
             </div>
             <div class="resume-date text-md-right">
               <span class="text-primary">May 2018 - Present</span>
@@ -151,29 +172,133 @@
             <div class="resume-content mr-auto">
               <h3 class="mb-0">BCMI (Brain-like Computing and Machine Intelligence) Lab, SJTU</h3>
               <br>
-              <p>Emotion recognition and fatigue detection based on EEG signals, using signal processing and machine learning approaches.</p>
-              <p>Design emotion arousal experiments.</p>
+              <p>The lab aims to understand the mechanism of intelligent information processing and cognitive process in the brain and to develop new type computing structures and algorithms for information technology. My work is to tackle 2 tasks by proessing EEG signals:</p>
+              <ul>
+                <li>
+                  <b>Emotion Classification</b>
+                  Using a series of movie clips as stimulator, we conducted experiments on subjects to arouse their emotion(happy or sad) while they watch the clips, and record their EEG(electroencephalogram) signals during the whole process. We built personalized EEG-based affective models with those data.
+                </li>
+                <li>
+                  <b>Depression Detection</b>
+                  We want to apply our methods to help psychiatrists diagnose or better understand depression. Several characteristics of depressed patients that make experiment design more difficult: they usually suffer declined cognition. So video or other stimulations we usually use may fail to catch their attention. And also we have to protect them from emotionally hurt.
+                </li>
+              </ul>
             </div>
             <div class="resume-date text-md-right">
               <span class="text-primary">2017 - 2018</span>
             </div>
           </div>
 
-         TO BE FINISHED
+          <div> <b>Also, I finished a few math projects in field theory and applied math during high school. </b></div>
+          
+        <h2 class="mt-5 text-primary">Projects</h2>   
+        <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-0 mt-3">PintOS(2017)</h3>
+              <br>
+              <p>PintOS is a simple operating system framework, and we strengthened its support in kernel threads, loading and running user programs, and file system.</p>
+              <p>We worked on the following tasks together(pair-programming):</p>
+              <ul>
+                <li>
+                  <b>Threads Synchronyzation</b><br> implemented priority scheduling and priority donation to avoid priority inversion;
+                </li>
+                <li>
+                  <b>Loading and running user programs</b><br>
+                  <ul>
+                    <li>Argument passing. Set up the stack.</li>                
+                    <li>User memory access. Validate pointers used by user programs, and terminate offending process.</li>
+                    <li>System call infrastructure, and all the system calls including exit() and wait().</li>
+                  </ul>
+                </li>
+                <li>
+                  <b>Virtual Memory</b><br> We designed our implementation from sctatch: supplementary page table, frame table,swap table, and their interactions to deal with memory access, page fault handling, program lazy loading, eviction policy, swap slots track and so on. 
+                </li>
+                <li>
+                  <b>File System</b><br>
+                  <ul>
+                    <li>An indexed on-disk inode structure with direct, indirect, and doubly indirect blocks. Inplemented file growth with "sparse file" support.</li>    
+                  
+                    <li>Subdirectories, current working directory, and relevant system calls like readdir().</li> 
+                  
+                    <li>File system synchronization</li> 
+                  <ul>
+                </li>
+              <ul>
+            </div>
+          </div>
 
+          <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+              <h3 class="mb-1 mt-3">ACORN, a search engine with both web text and image searching(2016)</h3>
+              <br>
+              <div class="row">
+                <div class="col-md-6"> 
+                  <img class="img-fluid" src="img/acorn-1.jpg" alt="">
+                </div>
+                <div class="col-md-6"> 
+                  <img class="img-fluid" src="img/acorn-4.jpg" alt="">
+                </div>
+              </div>
+
+                                 
+                  <p>I built such a search engine from scratch(except for the fromt-end, which is done by my partner), including following parts:</p> 
+                  <br>            
+                  <ul>
+                    <li>
+                      Web scrawler. I crawled websites and pictures parsed with <b>Beautifulsoup</b> and later <b>lxml</b> to speed up.
+                    </li>
+                    <li>
+                      For text-to-text and text-to-picture searching, I built dictionary and index with <b>Lucene</b>, and used <b>hadoop</b> to inprove processing efficiency. Special pre-processing like word segmentaion are required for Chinese websites. 
+                    </li>
+                    <li>
+                      For image search(which means the input is a picture), I first tried out several classical algorithms to count picture similarity: Implemented <b>Canny</b> for edge detection. To solve the problem that the detected edges are not smooth, I designed a "track finding" algorithm to connect edge points at the gaps. Also I implemented <b>SIFT(Scale-Invariant Feature Transform)</b> to detect the corresponding points after a picture is amplified/shrunk/rotated.<br> 
+                      RGB distribution are also used as a measure of similarity. The 2 parts are combined to produce a final ranking.
+                    </li>
+                  </ul>
+        
+   
+          </div>
         </div>
 
+
+           <div class="resume-item d-flex flex-column flex-md-row mb-5">
+            <div class="resume-content mr-auto">
+     
+              <h3 class="mb-0 mt-3">OpenNERO(2017)</h3>
+              <br>
+              <img class="img-fluid mb-3" src="img/opennero.jpg" alt="">
+              <p>OpenNERO is an software platform with visible virtual environment for different artificial intelligence tasks. </p>
+                  <p>I implemented 6 classical AI algorithms in corresponding task settings:</p>            
+                  <ul>
+                    <li>
+                      Solving maze with A-star search
+                    </li>
+                    <li>
+                      Solving Hanoi Tower with Planning 
+                    </li>
+                    <li>
+                      Solving maze with Reinforcement Learning
+                    </li>
+                    <li>
+                      NLP: Rule-based instruction processing
+                    </li>
+                    <li>
+                      Vision:Recognizing objects with Bayesian classifier
+                    </li>
+                    <li>
+                      Neuroevolution
+                    </li>
+                  </ul>
+          </div>
+        </div>
       </section>
 
       <hr class="m-0">
-
-      
-
       <hr class="m-0">
 
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="skills">
         <div class="my-auto">
-          <h2 class="mb-5">Skills</h2>
+          <h2 class="mb-5 text-primary">Skills</h2>
 
           <div class="subheading mb-3">Programming Languages &amp; Tools</div>
           <ul class="list-inline dev-icons">
@@ -292,7 +417,7 @@
 
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="awards">
         <div class="my-auto">
-          <h2 class="mb-5">Awards &amp; Certifications</h2>
+          <h2 class="mb-5 text-primary">Awards &amp; Certifications</h2>
           <ul class="fa-ul mb-0">
             <li>
               <i class="fa-li fa fa-trophy text-warning"></i>
