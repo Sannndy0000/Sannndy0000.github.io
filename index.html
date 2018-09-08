@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Resume - Start Bootstrap Theme</title>
+    <title>Minxue Niu</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -78,12 +78,12 @@
             <a href="#https://github.com/Sannndy0000">
               <i class="fab fa-github"></i>
             </a>
-            <a href="#">
+            <!-- <a href="#">
               <i class="fab fa-twitter"></i>
             </a>
             <a href="#">
               <i class="fab fa-facebook-f"></i>
-            </a>
+            </a> -->
           </div>
         </div>
       </section>
@@ -139,15 +139,15 @@
             <div class="resume-content mr-auto">
               <h3 class="mb-0">ADAPT(Advanced Data and Programming Technology) Lab, SJTU</h3>
               <br>
-              <p>I started a project on recognizing speakers' relatinoship from conversations independently earlier this semester but encountered difficulties of finding a dataset. Then I found and joined ADAPT for guidance.</p>
+              <p>I started a project on recognizing speakers' relationship from conversations independently earlier this semester and joined ADAPT and worked under the guidance of Prof. Kenny Zhu.</p>
               <p>A few progress has been made since then.</p>
               <ul>
                 <li>
-                  <b>Dialogue source</b><br>
-                  Since large-scale transcripts of human converstions are very hard to obtain, we decided to use dialogues from movies. We crawlled 1000+ movie scripts from various websites, and left those in relatively normative format. For each script, we looked for corresponding IMDB page to merge different versions oa one movie, and also to discard unfamiliar ones.
+                  <b>Dataset: Dialogs with relationship labels</b><br>
+                  Since large-scale transcripts of human conversations are very hard to obtain, we decided to use dialogs from movies. We crawled 1000+ movie scripts from various websites, and left those in relatively normative format. For each script, we looked for corresponding IMDB page to merge different versions of one movie, and also to discard unfamiliar ones.
                 </li>
                 <li>
-                  <b>Pre-processing</b><br>
+                  <b>Preprocessing</b><br>
                   We extracted one-to-one conversations from the scripts after scene splitting based on rules, and listed name pairs that has at least 4 conversation session and 20 lines. We asked human volunteers to label the relationship of those pairs after they watch the movie or read the synopsis.
                 </li>
                 <li>
@@ -172,7 +172,7 @@
             <div class="resume-content mr-auto">
               <h3 class="mb-0">BCMI (Brain-like Computing and Machine Intelligence) Lab, SJTU</h3>
               <br>
-              <p>The lab aims to understand the mechanism of intelligent information processing and cognitive process in the brain and to develop new type computing structures and algorithms for information technology. My work is to tackle 2 tasks by proessing EEG signals:</p>
+              <p>The lab aims to understand the mechanism of intelligent information processing and cognitive process in the brain and to develop new type computing structures and algorithms for information technology. My work is to tackle 2 tasks by processing EEG signals:</p>
               <ul>
                 <li>
                   <b>Emotion Classification</b>
@@ -191,16 +191,16 @@
 
           <div> <b>Also, I finished a few math projects in field theory and applied math during high school. </b></div>
           
-        <h2 class="mt-5 text-primary">Projects</h2>   
+        <h2 class="mt-5 mb-5 text-primary">Projects</h2>   
         <div class="resume-item d-flex flex-column flex-md-row mb-5">
             <div class="resume-content mr-auto">
-              <h3 class="mb-0 mt-3">PintOS(2017)</h3>
+              <h3 class="mb-3">PintOS</h3>
               <br>
               <p>PintOS is a simple operating system framework, and we strengthened its support in kernel threads, loading and running user programs, and file system.</p>
               <p>We worked on the following tasks together(pair-programming):</p>
               <ul>
                 <li>
-                  <b>Threads Synchronyzation</b><br> implemented priority scheduling and priority donation to avoid priority inversion;
+                  <b>Threads Synchronization</b><br> implemented priority scheduling and priority donation to avoid priority inversion;
                 </li>
                 <li>
                   <b>Loading and running user programs</b><br>
@@ -211,12 +211,12 @@
                   </ul>
                 </li>
                 <li>
-                  <b>Virtual Memory</b><br> We designed our implementation from sctatch: supplementary page table, frame table,swap table, and their interactions to deal with memory access, page fault handling, program lazy loading, eviction policy, swap slots track and so on. 
+                  <b>Virtual Memory</b><br> We designed our implementation from scratch: supplementary page table, frame table,swap table, and their interactions to deal with memory access, page fault handling, program lazy loading, eviction policy, swap slots track and so on. 
                 </li>
                 <li>
                   <b>File System</b><br>
                   <ul>
-                    <li>An indexed on-disk inode structure with direct, indirect, and doubly indirect blocks. Inplemented file growth with "sparse file" support.</li>    
+                    <li>An indexed on-disk inode structure with direct, indirect, and doubly indirect blocks. Implemented file growth with "sparse file" support.</li>    
                   
                     <li>Subdirectories, current working directory, and relevant system calls like readdir().</li> 
                   
@@ -225,11 +225,14 @@
                 </li>
               <ul>
             </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">September-December 2017</span>
+            </div>
           </div>
 
           <div class="resume-item d-flex flex-column flex-md-row mb-5">
             <div class="resume-content mr-auto">
-              <h3 class="mb-1 mt-3">ACORN, a search engine with both web text and image searching(2016)</h3>
+              <h3 class="mb-3">ACORN, a search engine with both web text and image searching(2016)</h3>
               <br>
               <div class="row">
                 <div class="col-md-6"> 
@@ -238,17 +241,15 @@
                 <div class="col-md-6"> 
                   <img class="img-fluid" src="img/acorn-4.jpg" alt="">
                 </div>
-              </div>
-
-                                 
-                  <p>I built such a search engine from scratch(except for the fromt-end, which is done by my partner), including following parts:</p> 
+              </div>                     
+                  <p>I built such a search engine from scratch(except for the front-end, which is done by my partner), including following parts:</p> 
                   <br>            
                   <ul>
                     <li>
                       Web scrawler. I crawled websites and pictures parsed with <b>Beautifulsoup</b> and later <b>lxml</b> to speed up.
                     </li>
                     <li>
-                      For text-to-text and text-to-picture searching, I built dictionary and index with <b>Lucene</b>, and used <b>hadoop</b> to inprove processing efficiency. Special pre-processing like word segmentaion are required for Chinese websites. 
+                      For text-to-text and text-to-picture searching, I built dictionary and index with <b>Lucene</b>, and used <b>Hadoop</b> to improve processing efficiency. Special pre-processing like word segmentation are required for Chinese websites. 
                     </li>
                     <li>
                       For image search(which means the input is a picture), I first tried out several classical algorithms to count picture similarity: Implemented <b>Canny</b> for edge detection. To solve the problem that the detected edges are not smooth, I designed a "track finding" algorithm to connect edge points at the gaps. Also I implemented <b>SIFT(Scale-Invariant Feature Transform)</b> to detect the corresponding points after a picture is amplified/shrunk/rotated.<br> 
@@ -256,15 +257,18 @@
                     </li>
                   </ul>
         
-   
+   			<div class="resume-date text-md-right">
+              <span class="text-primary">March-May 2016</span>
+            </div>
           </div>
+          
         </div>
 
 
            <div class="resume-item d-flex flex-column flex-md-row mb-5">
             <div class="resume-content mr-auto">
      
-              <h3 class="mb-0 mt-3">OpenNERO(2017)</h3>
+              <h3 class="mb-0">OpenNERO</h3>
               <br>
               <img class="img-fluid mb-3" src="img/opennero.jpg" alt="">
               <p>OpenNERO is an software platform with visible virtual environment for different artificial intelligence tasks. </p>
@@ -290,6 +294,9 @@
                     </li>
                   </ul>
           </div>
+          <div class="resume-date text-md-right">
+              <span class="text-primary">September-December 2017</span>
+            </div>
         </div>
       </section>
 
