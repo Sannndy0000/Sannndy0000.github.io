@@ -99,7 +99,7 @@
               <div class="subheading mb-3">Bachelor of Science</div>
               <div>Computer Science - IEEE Experimental Class</div>
               <div>Member of Zhiyuan Honor Program</div>
-              <p>GPA: 3.65</p>
+              <p>Average Score: 87/100</p>
             </div>
             <div class="resume-date text-md-right">
               <span class="text-primary">September 2015 - June 2019</span>
@@ -139,27 +139,35 @@
             <div class="resume-content mr-auto">
               <h3 class="mb-0">ADAPT(Advanced Data and Programming Technology) Lab, SJTU</h3>
               <br>
-              <p>I started a project on recognizing speakers' relationship from conversations independently earlier this semester and joined ADAPT and worked under the guidance of Prof. Kenny Zhu.</p>
+              <p>I started a project on recognizing speakers' relationship from conversations independently earlier this semester and joined ADAPT for the guidance of Prof. Kenny Zhu.</p>
               <p>A few progress has been made since then.</p>
               <ul>
                 <li>
                   <b>Dataset: Dialogs with relationship labels</b><br>
-                  Since large-scale transcripts of human conversations are very hard to obtain, we decided to use dialogs from movies. We crawled 1000+ movie scripts from various websites, and left those in relatively normative format. For each script, we looked for corresponding IMDB page to merge different versions of one movie, and also to discard unfamiliar ones.
+                  Since large-scale transcripts of human conversations are very hard to obtain, we decided to use dialogs from movies. We crawled 1000+ movie scripts from various websites, and left those in relatively normative format. For each script, we looked for corresponding IMDB page to merge different versions of one movie, and also to discard unfamiliar ones. 
                 </li>
                 <li>
                   <b>Preprocessing</b><br>
-                  We extracted one-to-one conversations from the scripts after scene splitting based on rules, and listed name pairs that has at least 4 conversation session and 20 lines. We asked human volunteers to label the relationship of those pairs after they watch the movie or read the synopsis.
+                  We extracted one-to-one conversations from the scripts after scene splitting based on simple rules, and listed name pairs that has at least 4 conversation session and 20 lines. We asked human volunteers to label the relationship of those pairs after they watch the movie or read the synopsis. Relationships that involve too many changes or are vague are discarded.
                 </li>
                 <li>
                   <b>Feature engineering</b><br>
-                  Since conversation lines are casual and always involves much redundant information(Sometimes nothing can indicate the speakers' relationship in tens of turns), traditional approach like document embedding or LSTM doesn't work. I believe some features need to be extracted, and am referring to publications in Conversation Analysis to determine such features. Currently I think there should at least be
+                  Since conversation lines are casual and always involves much redundant information(Sometimes nothing can indicate the speakers' relationship in tens of turns), traditional approach like document embedding or LSTM doesn't work. I believe some features need to be extracted, and am referring to publications in Conversation Analysis to determine such features. Currently the following features are taken into consideration:
                   <ul>
                     <li>Address</li>
+                    Address terms are classified into 3 categories: name, titles and placeholders (Vinodh Krishnan and Jacob Eisenstein, 2014).I designed rules to extract address terms (tell address terms from referring to other names) and labeled them with the exact category. To see the effect of address term extraction, I wrote a simple webpage which displays sentences and asks human annotators to do the labeling. Now they are working on it and the result will come out in about a week. 
                     <li>Wording</li>
                     <li>Co-executor of an action(For example, 'I' and 'You' are both subjects to a verb in one sentence)</li>
+                    Sentences concerned with words expressing "I", "You" and "We" are picked out and parsed with Stanford CoreNLP tools. With the dependency information information, subject(agent) and object of the verbs can be extracted.
                     <li>Emotional tendency</li>
                     <li>Time occupation</li>
                   </ul>
+                <!-- </li>
+                  <b>Model</b><br>
+                <li> -->
+
+                I'm actively working on this topic currently. Any suggestions or idea is greatly appreciated!
+
                 </li>
               </ul>
             </div>
@@ -176,12 +184,14 @@
               <ul>
                 <li>
                   <b>Emotion Classification</b>
-                  Using a series of movie clips as stimulator, we conducted experiments on subjects to arouse their emotion(happy or sad) while they watch the clips, and record their EEG(electroencephalogram) signals during the whole process. We built personalized EEG-based affective models with those data.
+                  Using a series of movie clips as stimulator, we conducted experiments on subjects to arouse their emotion(happy or sad) while they watch the clips, and record their EEG(electroencephalogram) signals during the whole process. We built personalized EEG-based affective models with those data. I ran models with SVM(tried multiple features, and added some preprocessing steps like period-interception, noise reduction by superposing signals), LSTM, CNN and compared their results.
                 </li>
                 <li>
                   <b>Depression Detection</b>
-                  We want to apply our methods to help psychiatrists diagnose or better understand depression. Several characteristics of depressed patients that make experiment design more difficult: they usually suffer declined cognition. So video or other stimulations we usually use may fail to catch their attention. And also we have to protect them from emotionally hurt.
+                  We want to apply our methods to help psychiatrists diagnose or better understand depression. During my summer intern, we worked on experiment design. Several characteristics of depressed patients that make experiment design more difficult: they usually suffer declined cognition, so video or other stimulations we usually use may fail to catch their attention. And also we have to protect them from emotionally hurt. We proposed a experiment plan with both cognitive and emotional tests, including recognizing facial expressions, position, change of numbers, and also emotion arousal. We also tried to implement the experiment environment with VR devices to enhance the arousal.
                 </li>
+
+                 Unfortunately, this project is currently suspended, and have to wait until subjects(patients) are ready at the cooperating hospital.
               </ul>
             </div>
             <div class="resume-date text-md-right">
@@ -365,7 +375,7 @@
       </section> -->
 
       <hr class="m-0">
-
+ 
       <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="experiences">
         <div class="my-auto">
           <h2 class="mb-4">Experience</h2>
